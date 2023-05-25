@@ -1,6 +1,10 @@
 ﻿### Download and Install postgresql 
 https://www.postgresql.org/download/
-
+- psql -U postgres (To connect to psql)
+- \l (show list of db)
+- \c (connect to db)
+- \dt (show list of tables)
+- \q (exit psql)
 
 - dotnet tool install --global dotnet-ef
 
