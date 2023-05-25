@@ -1,4 +1,5 @@
 obj/
 bin/
 .idea/
+.vs/
 appsettings.Development.json
