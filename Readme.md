@@ -6,9 +6,10 @@ https://www.postgresql.org/download/
 - \dt (show list of tables)
 - \q (exit psql)
 
+### Install
 - dotnet tool install --global dotnet-ef
 
-### Install Packages
+### Install Packages (On Cmd from dir where .csproj file lies)
 - dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL
 - dotnet add package Microsoft.EntityFrameworkCore.Design
 - dotnet add package EFCore.NamingConventions
