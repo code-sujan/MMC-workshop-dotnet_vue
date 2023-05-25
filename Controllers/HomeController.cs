@@ -30,7 +30,7 @@ public class HomeController : Controller
     public IActionResult New(){
         return View(new TestVm());
     }
-
+    
     [HttpPost]
     public IActionResult New(TestVm vm){
         return Ok(vm);
