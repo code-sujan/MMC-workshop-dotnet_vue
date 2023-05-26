@@ -1,6 +1,7 @@
-﻿@model List<test.Entity.ClassInfo>
+﻿@model List<test.Src.Entity.ClassInfo>
 
 <div class="container">
+    <a asp-controller="ClassInfo" asp-action="Create" class="btn btn-primary">Create</a>
     <table class="table">
         <thead>
         <tr>
@@ -18,10 +19,37 @@
                 <td>@item.Name</td>
                 <td>@item.Description</td>
                 <td>
-                    
+
                 </td>
             </tr>
         }
         </tbody>
     </table>
+    <div id="app">
+        <input type="text" v-model="x">
+        <span>{{x}}</span>
+    </div>
 </div>
+
+@section Scripts{
+    <script>
+
+        $(() => {
+
+            var app = Vue.createApp({
+                setup(){
+                    const x = Vue.ref(null);
+                    Vue.watch((x) , () => {
+                        console.log(x.value);
+                    });
+                    return {
+                        x
+                    }
+                }
+            })
+            app.mount("#app");
+
+        })
+
+    </script>
+}

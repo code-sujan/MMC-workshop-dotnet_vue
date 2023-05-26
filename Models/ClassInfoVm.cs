@@ -1,4 +1,6 @@
-﻿namespace test.Models;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace test.Models;
 
 public class ClassInfoVm
 {

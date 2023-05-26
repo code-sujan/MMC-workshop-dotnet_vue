@@ -12,8 +12,8 @@ using test.DataContext;
 namespace test.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230526020350_add class infos")]
-    partial class addclassinfos
+    [Migration("20230526053749_add class info")]
+    partial class addclassinfo
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace test.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("test.Entity.ClassInfo", b =>
+            modelBuilder.Entity("test.Src.Entity.ClassInfo", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()

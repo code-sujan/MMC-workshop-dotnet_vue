@@ -20,4 +20,9 @@
     <Folder Include="wwwroot\css\build\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\ClassInfo\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\ClassInfo\Index.cshtml" />
+  </ItemGroup>
+
 </Project>

@@ -22,7 +22,7 @@ namespace test.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("test.Entity.ClassInfo", b =>
+            modelBuilder.Entity("test.Src.Entity.ClassInfo", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()

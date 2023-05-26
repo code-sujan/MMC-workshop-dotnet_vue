@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using test.Entity;
+using test.Src.Entity;
 
 namespace test.DataContext;
 
@@ -18,12 +18,6 @@ public class AppDbContext : DbContext
         optionsBuilder.UseNpgsql(connectionString).UseSnakeCaseNamingConvention();
     }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        base.OnModelCreating(modelBuilder);
-        
-    }
-    
-    public DbSet<ClassInfo> ClassInfos { get; set; }
+    public DbSet<ClassInfo> ClassInfos {get;set;}
 
 }
