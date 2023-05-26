@@ -1,5 +1,4 @@
-﻿using System.Collections.Immutable;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using test.Entity;
 
 namespace test.DataContext;
@@ -25,5 +24,6 @@ public class AppDbContext : DbContext
         
     }
     
-    public DbSet<Student> Students { get; set; }
+    public DbSet<ClassInfo> ClassInfos { get; set; }
+
 }

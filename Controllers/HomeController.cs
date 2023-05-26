@@ -16,11 +16,8 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult Index()
     {
-        var list = new List<StudentVm>(){
-            new StudentVm(){Id = 1, Name="One", Address="Addr 1"},
-            new StudentVm(){Id = 2, Name="Two", Address="Addr 2"}
-        };
-        return View(list);
+       
+        return View();
     }
 
     public IActionResult Test(){
@@ -28,13 +25,10 @@ public class HomeController : Controller
     }
 
     public IActionResult New(){
-        return View(new TestVm());
+        return View();
     }
 
-    [HttpPost]
-    public IActionResult New(TestVm vm){
-        return Ok(vm);
-    }
+
 
     public IActionResult Privacy()
     {
