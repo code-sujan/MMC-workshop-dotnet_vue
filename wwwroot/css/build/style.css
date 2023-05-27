@@ -1,5 +1,22 @@
-.text-primary {
+.text-primary, .btn-primary {
   color: blue;
+}
+
+.btn-primary {
+  cursor: pointer;
+}
+
+body {
+  color: blue;
+}
+body p {
+  font-style: italic;
+  border: 2px solid green;
+}
+body .test {
+  border: 1px solid blue;
+  width: 100px;
+  height: 100px;
 }
 
 /*# sourceMappingURL=style.css.map */

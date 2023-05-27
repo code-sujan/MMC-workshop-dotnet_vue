@@ -3,3 +3,27 @@
 .text-primary {
   color : $color;
 }
+
+.btn-primary {
+  cursor: pointer;
+  @extend .text-primary;
+}
+
+@mixin addBorder($size, $color) {
+  border: $size+px solid $color
+}
+
+body {
+  color: $color;
+
+  p {
+    font-style: italic;
+    @include addBorder(2, green);
+  }
+
+  .test {
+    @include addBorder(1, blue);
+    width: 100px;
+    height: 100px;
+  }
+}
