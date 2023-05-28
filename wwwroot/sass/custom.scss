@@ -1,0 +1,45 @@
+﻿
+//Variables
+$primaryColor:blue;
+$dangerColor:red;
+
+.danger-text {
+  color : $dangerColor;
+}
+
+.danger-bg {
+  background-color: $dangerColor;
+}
+
+//Function or Mixin
+
+@mixin addCard($size, $bColor, $tColor, $bgColor) {
+  border: $size+px solid $bColor;
+  color : $tColor;
+  background-color: $bgColor;
+}
+
+.card-primary{
+  @include addCard(2, black, white, blue);
+}
+
+.card-warning{
+  @include addCard(2, black, red, yellow);
+}
+
+//Nesting
+body {
+  color : $primaryColor;
+  p {
+    margin : 5px;
+    .x {
+      font-size: 10px;
+    }
+  }
+}
+
+//Inheritance
+.card-danger{
+  border: 1px solid black;
+  @extend .danger-bg;
+}

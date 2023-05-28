@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using test.DataContext;
 using test.Models;
+using test.Repositories.Interfaces;
 using test.Src.Entity;
 
 namespace test.Controllers;
@@ -10,9 +11,11 @@ namespace test.Controllers;
 public class ClassInfoController : Controller
 {
     private readonly AppDbContext _context;
-    public ClassInfoController(AppDbContext context)
+    private readonly IClassInfoRepo _classInfoRepo;
+    public ClassInfoController(AppDbContext context, IClassInfoRepo classInfoRepo)
     {
         _context = context;
+        _classInfoRepo = classInfoRepo;
     }
 
     [HttpGet]
@@ -59,8 +62,7 @@ public class ClassInfoController : Controller
     {
         try
         {
-            var info = await _context.ClassInfos.Where(x => x.Id == id).FirstOrDefaultAsync();
-            if (info == null) throw new Exception($"Class info with id {id} not found");
+            var info = await _classInfoRepo.FindOrThrowAsync(id);
             var model = new ClassInfoVm()
             {
                 Name = info.Name,
@@ -79,8 +81,7 @@ public class ClassInfoController : Controller
     {
         try
         {
-            var info = await _context.ClassInfos.Where(x => x.Id == id).FirstOrDefaultAsync();
-            if (info == null) throw new Exception($"Class info with id {id} not found");
+            var info = await _classInfoRepo.FindOrThrowAsync(id);
             info.Name = model.Name;
             info.Description = model.Description;
             _context.ClassInfos.Update(info);
@@ -98,8 +99,7 @@ public class ClassInfoController : Controller
     {
         try
         {
-            var info = await _context.ClassInfos.Where(x => x.Id == id).FirstOrDefaultAsync();
-            if (info == null) throw new Exception($"Class info with id {id} not found");
+            var info = await _classInfoRepo.FindOrThrowAsync(id);
             _context.ClassInfos.Remove(info);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");

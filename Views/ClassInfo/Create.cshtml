@@ -1,5 +1,4 @@
 ﻿@model ClassInfoVm
-
 <div class="container">
     <form method="post">
         <div class="form-group">
@@ -13,3 +12,60 @@
         <button type="submit"> Add</button>
     </form>
 </div>
+
+
+<div id="app">
+    <h1>{{message}}</h1>
+    <input type="text" v-model="name">
+    <span>{{name}}</span>
+
+    <div class="form-group">
+        <label for="">Display Table</label>
+        <input type="checkbox" v-model="showData">
+    </div>
+    <table class="table" v-if="showData">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="item in list">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.description}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <h3 v-else>Data not displayed</h3>
+</div>
+
+@section Scripts
+{
+    <script>
+    $(() => {
+        const app = Vue.createApp({
+            setup(){
+                const message = "Hello to Vue";
+                const name = Vue.ref(null);
+                const showData = Vue.ref(false);
+                const list = Vue.ref([
+                    {id : 1, name : "One", description : "Des 1"},
+                    {id : 2, name : "Two", description : "Des 2"},
+                    {id : 3, name : "Three", description : "Des 3"},
+                ]);
+                return {
+                    message,
+                    name,
+                    list,
+                    showData
+                };
+            }
+        });
+        
+        app.mount("#app");
+    });
+    </script>
+}

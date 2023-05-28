@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using test.DataContext;
+using test.Helpers;
 using test.Models;
 using test.Src.Entity;
 
@@ -27,10 +28,11 @@ public class FacultyController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create(FacultyVm model)
+    public async Task<IActionResult> Create(IFormFile image, FacultyVm model)
     {
         try
         {
+            var fileName = await FileHelper.RecordFile(image);
             var faculty = new Faculty()
             {
                 Name = model.Name,

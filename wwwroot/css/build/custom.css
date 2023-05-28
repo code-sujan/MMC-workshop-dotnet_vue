@@ -1,0 +1,35 @@
+.danger-text {
+  color: red;
+}
+
+.danger-bg, .card-danger {
+  background-color: red;
+}
+
+.card-primary {
+  border: 2px solid black;
+  color: white;
+  background-color: blue;
+}
+
+.card-warning {
+  border: 2px solid black;
+  color: red;
+  background-color: yellow;
+}
+
+body {
+  color: blue;
+}
+body p {
+  margin: 5px;
+}
+body p .x {
+  font-size: 10px;
+}
+
+.card-danger {
+  border: 1px solid black;
+}
+
+/*# sourceMappingURL=custom.css.map */

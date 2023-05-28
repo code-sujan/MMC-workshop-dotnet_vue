@@ -1,4 +1,6 @@
-﻿$color:blue;
+﻿@use 'custom';
+
+$color:blue;
 
 .text-primary {
   color : $color;

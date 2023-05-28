@@ -1,0 +1,41 @@
+﻿<div id="app" class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Address</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="item in list">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.address}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+@section Scripts
+{
+    <script>
+        $(() => {
+                const app = Vue.createApp({
+                    setup(){
+                        const list = Vue.ref([]);
+                        const getData = async () => {
+                            const response = await fetch("/Campus/GetList");
+                            list.value = await response.json();
+                        }
+                        getData();
+                        return {
+                           list
+                        }
+                    }
+                });
+                app.mount("#app");
+            })
+    </script>
+
+}
