@@ -25,5 +25,6 @@ public class AppDbContext : DbContext
     }
     
     public DbSet<ClassInfo> ClassInfos { get; set; }
+    public DbSet<Campus> CampusList { get; set; }
 
 }

@@ -7,3 +7,63 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
+
+<div id="app">
+    <h1>{{message}}</h1>
+    <form action="">
+        <div class="form-group">
+            <label for="" class="form-label">Name</label>
+            <input type="text" class="form-control" v-model="name">
+            <span>{{name}}</span>
+        </div>
+    </form>
+    
+    <label for="">Show Data</label>
+    <input type="checkbox" v-model="showData">
+    <table class="table" v-if="showData">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="item in list">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.desc}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <h3 v-else>Data hidden</h3>
+</div>
+
+@section Scripts
+{
+    <script>
+        $(() => {
+           
+            const app = Vue.createApp({
+                setup() {
+                      const message = "Hello World";
+                      const name = Vue.ref();
+                      const list = Vue.ref([
+                           {id : 1, name : "One", desc : "Desc One"},  
+                           {id : 2, name : "Two", desc : "Desc Two"},  
+                           {id : 3, name : "Three", desc : "Desc Three"}
+                      ]);
+                      const showData = Vue.ref(false);
+                    return {
+                        message,
+                        name,
+                        list,
+                        showData
+                    }
+                }
+            });
+            app.mount("#app");
+            
+        });
+    </script>
+}
