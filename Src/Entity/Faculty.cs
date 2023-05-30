@@ -1,5 +1,8 @@
-﻿namespace test.Src.Entity;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
+namespace test.Src.Entity;
+
+[Table("faculties")]
 public class Faculty
 {
     public long Id { get; set; }

@@ -16,6 +16,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
 builder.Services.AddTransient<IClassInfoRepo, ClassInfoRepo>();
+builder.Services.AddTransient<IStudentRepo, StudentRepo>();
+builder.Services.AddTransient<IFacultyRepo, FacultyRepo>();
+builder.Services.AddTransient<IUow, Uow>();
 
 var app = builder.Build();
 

@@ -5,21 +5,21 @@ using test.Src.Entity;
 
 namespace test.Repositories;
 
-public class ClassInfoRepo : IClassInfoRepo
+public class FacultyRepo : IFacultyRepo
 {
     private readonly AppDbContext _context;
 
-    public ClassInfoRepo(AppDbContext context)
+    public FacultyRepo(AppDbContext context)
     {
         _context = context;
     }
-    
-    public IQueryable<ClassInfo> GetQueryable()
+
+    public IQueryable<Faculty> GetQueryable()
     {
-        return _context.ClassInfos;
+        return _context.Set<Faculty>();
     }
 
-    public async Task<ClassInfo> FindOrThrowAsync(long id)
+    public async Task<Faculty> FindOrThrowAsync(long id)
     {
         var entity = await GetQueryable().FirstOrDefaultAsync(x => x.Id == id);
         if (entity == null) throw new Exception($"Invalid id {id} provided");
